@@ -85,7 +85,7 @@ shinyUI(dashboardPage(
                   fluidRow(column(
                     12,
                     div(class = "imageContainer1",
-                        img(src="img/shouji.jpg", height = '70%')
+                        img(src="img/shouji.jpg", height = 450)
                     )
                   )
                   ),
@@ -114,11 +114,13 @@ shinyUI(dashboardPage(
                             value = 0, 
                             animate = animationOptions(interval = 800, loop = TRUE, playButton = "PLAY",
                                                        pauseButton = "PAUSE")
-                ),width=12
+                ),width=12,tags$script("$(document).ready(function(){
+                        setTimeout(function() {$('#shiny-tab-AME .slider-animate-button').click()},10);
+                                       });")
               ),
               
               mainPanel(
-                plotlyOutput("Plot2"),width=12
+                plotlyOutput("Plot2",width = "100%", height = "100%")
               )
             )
 
@@ -136,7 +138,7 @@ shinyUI(dashboardPage(
                             animate = animationOptions(interval = 800, loop = TRUE, playButton = "PLAY",
                                                        pauseButton = "PAUSE")
                 ),width=12,tags$script("$(document).ready(function(){
-                        setTimeout(function() {$('.slider-animate-button').click()},10);
+                        setTimeout(function() {$('#shiny-tab-ARU .slider-animate-button').click()},10);
                                        });")
                 
               ),
@@ -158,10 +160,12 @@ shinyUI(dashboardPage(
                             value = 0, 
                             animate = animationOptions(interval = 800, loop = TRUE, playButton = "PLAY",
                                                        pauseButton = "PAUSE")
-                ),width=12
+                ),width=12,tags$script("$(document).ready(function(){
+                        setTimeout(function() {$('#shiny-tab-NRM .slider-animate-button').click()},10);
+                                       });")
               ),
               mainPanel(
-                plotlyOutput("distPlot"),width=12
+                plotlyOutput("distPlot",width = "100%", height = "100%")
               )
             )
     )
